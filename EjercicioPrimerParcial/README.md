@@ -35,8 +35,8 @@ Ej:
 
 Función | Descripción
 ------------ | -------------
-```input.nextInt()``` | Pide un n
-```input.nexDouble()``` | Pide un
+```input.nextInt()``` | Pide un Integer
+```input.nexDouble()``` | Pide un Double
 ```input.nextLine()``` | Pide una cadena de texto en una linea
 
 ***Estas son algunas de las funciones que hay, Scanner tiene una gran variedad de funciones, para mayor información puede ver la [documentación](https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html)*** 
