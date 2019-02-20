@@ -27,9 +27,10 @@ Para recibir un dato a través de la consola se usa las funciones next.
 Ej:
 
 ***Crea un nuevo objeto Scanner***
-
+```Java
     Scanner input = new Scanner(System.in);
     input.nexInt();
+```
     
 ***input.nextInt();*** Indica que el dato que se espera es un número entero.
 
@@ -45,7 +46,7 @@ Función | Descripción
 
 Los condicionales son formas de crear "preguntas" en el programa, con estos puedo hacer comparaciones y ***establecer condiciones***
 Ej:
-  
+```Java
     int condicion==0;
     if(condicion==0){
       System.out.println("La condicion si se cumple");
@@ -53,24 +54,25 @@ Ej:
     else{
       System.out.println("La condicion no se cumple :( ");
     }
-
+```
 > Para el caso anterior, la condición se cumple dado que si es igual a 0 y el programa imprime: ***La condicion si se cumple***, si la variable condición fuese igual a 1, el programa imprimiría: ***La condición no se cumple***.
 
 Para usar los operadores de comparación < > <= >= siempre se requiere de dos datos por los cuales comparar, el operador no debe estar solo.
 
 Ej: 
-
+```Java
     if(a>4&&a<=6){
       ...
     }
+```
 > En este caso si `a` se encuentra entre 4.000000000....01 y 6 sin tener en cuenta el 4 la condición se cumple
 
 ***NO:***
-
+```Java
     if(a>4&&<=6){
       ...
     }
-
+```
 
 
 
