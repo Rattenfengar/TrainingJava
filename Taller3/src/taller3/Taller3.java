@@ -22,10 +22,7 @@ public class Taller3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        double s1=0;
-        double s2=0;
-        double s3=0;
-        double s4=0;
+        double s1=0, s2=0, s3=0, s4=0;
         double acumMes = 0;
         double salario=0;
         double promGastos =0;
