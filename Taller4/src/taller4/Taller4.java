@@ -91,16 +91,41 @@ public class Taller4 {
      * @param end fin de la tabulacion.
      */
     public static void tabFunction(double start, double end){
-        byte order = 0;
-        double coeficiente=0;
-        double resultado;
-        System.out.println("Las funcione que ingrese deberan ser polinomiales de la forma: x^2+3x+5");
-        System.out.println("Ingrese el orden de la ecuacion: ");
-        order=obtenerByte();
-        
-        for (int i = 0; i < order; i++) {
-            System.out.println("Coeficiente de grado: "+i);
-            
+        byte x = 0;
+        double r1,r2,r3, r4 =0;
+        System.out.println("|******************************************************************************|");
+        System.out.println("| 1) Lineal y=ax+b.............................................................|");
+        System.out.println("| 2) Cuadrática y=ax^2+bx+c....................................................|");
+        System.out.println("| 3) Cúbica y=ax^3+bx^2+cx+d..............................................................|");
+        System.out.println("|******************************************************************************|");
+        System.out.println("Ingrese la opción deseada...");
+        switch(x){
+            case 1:
+                System.out.println("Ingrese el coeficiente a");
+                r1=obtenerDouble();
+                System.out.println("Ingrese el coeficiente b");
+                r2=obtenerDouble();
+                break;
+            case 2:
+                System.out.println("Ingrese el coeficiente a");
+                r1=obtenerDouble();
+                System.out.println("Ingrese el coeficiente b");
+                r2=obtenerDouble();
+                System.out.println("Ingrese el coeficiente c");
+                r3=obtenerDouble();
+                break;
+            case 3:
+                System.out.println("Ingrese el coeficiente a");
+                r1=obtenerDouble();
+                System.out.println("Ingrese el coeficiente b");
+                r2=obtenerDouble();
+                System.out.println("Ingrese el coeficiente c");
+                r3=obtenerDouble();
+                System.out.println("Ingrese el coeficiente d");
+                r4=obtenerDouble();
+                break;
+            default:
+                break;
         }
     }
     public static byte obtenerByte(){
@@ -113,6 +138,17 @@ public class Taller4 {
             System.exit(0);
         }
         return Byte.MAX_VALUE;
+    }
+    public static double obtenerDouble(){
+        double x =0;
+        if(input.hasNextDouble()){
+            x = input.nextDouble();
+            return x;
+        }else{
+            System.out.println("Error dato incorrecto");
+            System.exit(0);
+        }
+        return Double.NaN;
     }
     
 }
