@@ -14,6 +14,7 @@ import java.util.Scanner;
  * 1. Bienvenida
  * 2. Menu que retorna opción.
  * 3. Método que evalua una función e imprime los datos tabulados.
+ * 4.
  */
 
 
@@ -31,14 +32,8 @@ public class Taller4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Point p1 = new Point(4,6);
-        Point p2 = new Point(6,4);
-        System.out.println(String.format("(%.0f,%.0f)", p1.getX(),p1.getY()));
-        System.out.println(String.format("(%.0f,%.0f)", p2.getX(),p2.getY()));
         bienvenida();
         navegacion(menu());
-     
-        
     }
     /**
      * Método que da la bienvenida.
