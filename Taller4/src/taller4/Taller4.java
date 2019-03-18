@@ -33,7 +33,7 @@ public class Taller4 {
     public static void main(String[] args) {
         // TODO code application logic here
         bienvenida();
-        navegacion(menu());
+        navegacion(menu()); //El metodo navegacion me permite escoger las opciones disponibles
     }
     /**
      * Método que da la bienvenida.
@@ -41,12 +41,12 @@ public class Taller4 {
     public static void bienvenida(){
         System.out.println("Ingresa tu nombre: ");
         nombre = input.nextLine();
-        if(nombre.equals(null)){
+        if(nombre.equals(null)){ //Este metodo compara el valor de un string
             System.out.println("El nombre no puede estar vacío.");
             System.exit(0);
         }
-        System.out.println("|******************************************************************************|");
-        System.out.format ("|*******************************BIENVENIDO: %10s ******************************|", nombre);
+        System.out.println("|******************************************************************************|\n");
+        System.out.format ("|*******************************BIENVENIDO:%10s ******************************|\n", nombre);
         System.out.println("|******************************************************************************|\n");
     }
     /**
@@ -153,21 +153,33 @@ public class Taller4 {
         System.out.println("|****************************************|");
         System.out.println("|        x          |           y        |");
         switch(z){
-            case 1:
+            case 1: //for
                 for (int i = init; i <= end; i++) {
                     System.out.printf( "|     %4d          |        %5.4f      |\n", i, calcLinear(a,b,i) );
                 }
                 break;
-            case 2:
-                for (int i = init; i <=end; i++) {
-                    System.out.printf( "|     %4d          |        %5.4f      |\n", i, calcQuadratic(a,b,c,i) );
+            case 2: //while
+                int x = init;
+                while(x<=end){
+                    System.out.printf( "|     %4d          |        %5.4f      |\n", x, calcQuadratic(a,b,c,x) );
+                    x++;
                 }
+                /*for (int i = init; i <=end; i++) {
+                    System.out.printf( "|     %4d          |        %5.4f      |\n", i, calcQuadratic(a,b,c,i) );
+                }*/
                 break;
-            case 3:
+            case 3: // do while
+                int t = 0;
+                do {
+                    System.out.printf( "|     %4d          |        %5.4f      |\n", t, calcQuadratic(a,b,c,t) );
+                    t++;
+                } while (t<=end);
+
+                /*
                 for (int i = init; i <= end; i++) {
                     System.out.println("|        x          |           y        |");
                     System.out.printf( "|     %4d         |        %5.4f      | \n", i, calcCubic(a,b,c,d,i) );
-                }
+                }*/
         }
         
     }
