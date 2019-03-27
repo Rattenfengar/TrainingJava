@@ -31,7 +31,7 @@ public class Taller6 {
     public static void main(String[] args) {
         // TODO code application logic here
         setData();
-        JOptionPane.showMessageDialog(null, "sdf", "sdfasd", JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "sdf", "sdfasd", JOptionPane.INFORMATION_MESSAGE);
         menu();
     }
 
@@ -81,6 +81,9 @@ private static void signUpAccount() {
             apellidos[pos]=getString("Ingrese su apellido");
             cedula[pos]=getString("Ingrese su cedula");
             cuentasDisponibles--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Dato incorrecto", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }
 
