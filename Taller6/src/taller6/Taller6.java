@@ -31,8 +31,10 @@ public class Taller6 {
     public static void main(String[] args) {
         // TODO code application logic here
         setData();
-        //JOptionPane.showMessageDialog(null, "sdf", "sdfasd", JOptionPane.INFORMATION_MESSAGE);
-        menu();
+        for (;;) {
+           menu();
+        }
+        
     }
 
     private static void setData() {
@@ -59,32 +61,40 @@ public class Taller6 {
                     signUpAccount();
                     break;
                 case 2:
+                    showAccounts();
                     break;
                 case 3:
+                    deposito();
                     break;
                 case 4:
+                    JOptionPane.showMessageDialog(null, "Gracias por usar el programa");
+                    System.exit(0);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Opcion incorrecta");
                     break;
             }
         } while (x <= 0 || x > 4);
-}
-private static void signUpAccount() {
+    }
+
+    private static void signUpAccount() {
         JOptionPane.showMessageDialog(null, "Informacion", "Acontinuacion ingrese sus datos", JOptionPane.INFORMATION_MESSAGE);
-        String cuentaR = JOptionPane.showInputDialog(null, "Ingrese su numero de cuenta");
-        if(checkAccount(cuentaR)&&cuentasDisponibles>0){
-            int pos = 3-cuentasDisponibles;
-            JOptionPane.showMessageDialog(null, "Su cuenta será registrada");
-            cuenta[pos]=cuentaR;
-            nombres[pos]=getString("Ingrese su nombre");
-            apellidos[pos]=getString("Ingrese su apellido");
-            cedula[pos]=getString("Ingrese su cedula");
-            cuentasDisponibles--;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Dato incorrecto", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }
+        boolean a = true;
+        do {
+            String cuentaR = JOptionPane.showInputDialog(null, "Ingrese su numero de cuenta");
+            if (checkAccount(cuentaR) && cuentasDisponibles > 0) {
+                int pos = 3 - cuentasDisponibles;
+                JOptionPane.showMessageDialog(null, "Su cuenta será registrada");
+                cuenta[pos] = cuentaR;
+                nombres[pos] = getString("Ingrese su nombre");
+                apellidos[pos] = getString("Ingrese su apellido");
+                cedula[pos] = getString("Ingrese su cedula");
+                cuentasDisponibles--;
+                a=false;
+            } else {
+                JOptionPane.showMessageDialog(null, "Dato incorrecto", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+        } while (a);
     }
 
     private static String getString(String msg) {
@@ -100,6 +110,7 @@ private static void signUpAccount() {
         }
         return x;
     }
+
     private static int getOption(String msg) {
         int x = 0;
         try {
@@ -121,6 +132,34 @@ private static void signUpAccount() {
             }
         }
         return true;
+    }
+
+    private static void showAccounts() {
+        String cuentas=String.format("%10s | %10s | %10s | %4s | %11s\n", "Nombre","Apellido","Cedula","Cuenta","Saldo");
+        for (int i = 0; i < nCuentas; i++) {
+            cuentas+=String.format("%10s | %10s | %10s | %4s | %8.3f\n", nombres[i],apellidos[i], cedula[i], cuenta[i], saldo[i]);
+        }
+        JOptionPane.showMessageDialog(null, cuentas);
+    }
+
+    private static void deposito() {
+        String c = JOptionPane.showInputDialog(null, "Ingrese el numero de cuenta del destinatraio (4 digitos)");
+        int pos = searchAccount(c);
+        if(pos>=0){
+            System.out.println(JOptionPane.showConfirmDialog(null, "La cuenta a depositar pertenece a:"+nombres[pos]));
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Cuenta no encontrada");
+        }
+    }
+    private static int searchAccount(String ac){
+        for (int i = 0; i < nCuentas; i++) {
+            if(cuenta[i].equals(ac)){
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
