@@ -101,7 +101,7 @@ public class Taller6 {
         return JOptionPane.showInputDialog(null, msg);
     }
 
-    private static double getSaldo(String msg) {
+    private static double getDouble(String msg) {
         double x = 0;
         try {
             x = Double.parseDouble(JOptionPane.showInputDialog(null, msg));
@@ -145,9 +145,13 @@ public class Taller6 {
     private static void deposito() {
         String c = JOptionPane.showInputDialog(null, "Ingrese el numero de cuenta del destinatraio (4 digitos)");
         int pos = searchAccount(c);
+        double valor=0;
         if(pos>=0){
-            System.out.println(JOptionPane.showConfirmDialog(null, "La cuenta a depositar pertenece a:"+nombres[pos]));
-            
+            int confirmacion=JOptionPane.showConfirmDialog(null, "La cuenta a depositar pertenece a:"+nombres[pos]);
+            if(confirmacion==0){
+                valor=getDouble("¿Cúanto desea depositar?");
+                saldo[pos]=valor;
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, "Cuenta no encontrada");
